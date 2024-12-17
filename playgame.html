@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-игра: Угадай число</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/playgame.css">
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div id="info-text">
+            Угадай число и получи шанс выиграть:<br>
+
+            Бесплатный курс "Копирайтинг" или 50% скидку на любой курс!
+            <br>
+            Попробуй свою удачу!
+        </div>
+        <div id="game-container">
+            <h2>Угадай число от 1 до 3</h2>
+            <input type="number" id="guessInput" min="1" max="3">
+            <button id="guessButton">Угадать</button>
+            <button id="newGameButton">Новая игра</button>
+            <p id="result"></p>
+            <p id="attempts"></p>
+            <p id="timer"></p>
+        </div>
+        <div id="fireworks" class="fireworks"></div>
+        <div id="giftSticker" class="gift-sticker"></div>
+    </div>
+    <script src="js/playgame.js"></script>
+</body>
+
+</html>
