@@ -1,0 +1,15 @@
+.burning-sale {
+    box-sizing: border-box;
+    background-color: rgb(169, 186, 230);
+    width: 100%;
+    padding: 10px;
+    }
+    .burning-sale p {
+    text-align: center;
+    }
+    .burning-sale img {
+    text-align: center;
+    margin: 5px auto;
+    display: block;
+    width: 300px;
+    }

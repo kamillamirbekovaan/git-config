@@ -1,0 +1,41 @@
+
+
+
+.search-form{
+    position: absolute;
+    top: 115%; right: 7%;
+    background: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+ .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+#course-search {
+    width: 30%;
+    padding: 10px 15px; /* Отступы вокруг текста внутри поля */
+    font-size: 16px; /* Размер шрифта текста внутри поля */
+    border: 1px solid #ccc; /* Тонкая серая граница вокруг поля */
+    border-radius: 25px; /* Закругление углов поля */
+    outline: none; /* Удаление стандартного контура при фокусе */
+}
+
+#course-search::placeholder {
+    color: #999; /* Цвет текста в плейсхолдере (серый) */
+}
+
+#course-search:focus {
+    border-color: #007bff; /* Цвет границы поля при фокусе */
+}
+
+.search-form button {
+    display: none;
+}

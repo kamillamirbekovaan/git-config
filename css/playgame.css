@@ -1,0 +1,229 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121; 
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #003300, #1a1a1a);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.2) 20%, transparent 60%);
+    opacity: 0.5;
+    animation: glitch 2s infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes glitch {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+#info-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 700; 
+    max-width: 600px;
+    z-index: 1;
+}
+
+#game-container {
+    padding: 30px;
+    background-color: #424242; 
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-container h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    color: #4caf50; 
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#game-container input {
+    padding: 12px;
+    font-size: 18px;
+    margin-right: 10px;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    width: calc(100% - 130px);
+    background-color: #616161; 
+    color: #fff;
+}
+
+#game-container button {
+    padding: 12px 25px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 10px 0; 
+}
+
+#game-container button:hover {
+    background-color: #388e3c; 
+}
+
+#game-container button:active {
+    transform: scale(0.98); 
+}
+
+#result, #attempts, #timer {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#result {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #4caf50; 
+}
+
+#timer {
+    color: #e53935; 
+}
+
+#attempts {
+    color: #fff; 
+}
+
+#new-game {
+    padding: 12px 25px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 20px;
+    display: none; 
+}
+
+#new-game:hover {
+    background-color: #c62828; 
+}
+
+#new-game:active {
+    transform: scale(0.98); 
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    display: none;
+    overflow: hidden;
+}
+
+.fireworks .firework {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, transparent 70%);
+    opacity: 0;
+    animation: firework-animation 1.5s ease-out forwards;
+}
+
+@keyframes firework-animation {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0.1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-50vh) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-100vh) scale(0.1);
+        opacity: 0;
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.5) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translateY(-50vh);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0) translateY(-100vh);
+        opacity: 0;
+    }
+}
