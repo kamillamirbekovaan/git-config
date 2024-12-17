@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="img/logogogogog.jpg" type="image/jpg" sizes="32x32">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Продажа онлайн курсов</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/search.css">
+    <script src="js/search.js" defer></script>
+    <script src="libs/gsap/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const languageSelector = document.getElementById('languageSelector');
+            languageSelector.addEventListener('change', function () {
+                changeLanguage(languageSelector.value);
+            });
+
+            function changeLanguage(language) {
+                const elements = document.querySelectorAll('[data-lang]');
+
+                elements.forEach(element => {
+                    element.textContent = element.getAttribute(`data-lang-${language}`);
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <header class="main-header">
+                <div class='header'>
+                    <div class='container'>
+                        <div class='header-line'>
+                            <div class='header-logo'>
+                                <img src="img/logogogogog-transformed.png" alt="">
+                            </div>
+                            <div class="nav">
+                                <a class="nav-item" href="#products" data-lang data-lang-ru="Доступные курсы"
+                                    data-lang-en="Available Courses" data-lang-kg="Курстар">Доступные курсы</a>
+                                <a class="nav-item" href="#about" data-lang data-lang-ru="О нас" data-lang-en="About Us"
+                                    data-lang-kg="Биз жөнүндө">О нас</a>
+                                <a class="nav-item" href="#preimushestva" data-lang data-lang-ru="Преимущества"
+                                    data-lang-en="Advantages" data-lang-kg="Артыкчылыктар">Преимущества</a>
+                                <a class="nav-item" href="#reviews" data-lang data-lang-ru="Отзывы"
+                                    data-lang-en="Reviews" data-lang-kg="Пикирлер">Отзывы</a>
+                            </div>
+                            <div class='btn'>
+                                <a class='button' href='./logIn.html' data-lang data-lang-ru="Вход/Регистрация"
+                                    data-lang-en="Login/Register" data-lang-kg="Кирүү/Катталуу">Вход/Регистрация</a>
+                            </div>
+                            <select id="languageSelector">
+                                <option value="ru">Русский</option>
+                                <option value="en">English</option>
+                                <option value="kg">Кыргызча</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layers">
+                    <div class="layer__header">
+                        <div class="layers__caption" data-lang data-lang-ru="Добро пожаловать в"
+                            data-lang-en="Welcome to" data-lang-kg="Кош келиңиз">Добро пожаловать в</div>
+                        <div class="layers__title">Pro.Course</div>
+                    </div>
+                    <div class="layer layers__base" style="background-image: url(img/layer-base.png);"></div>
+                    <div class="layer layers__middle" style="background-image: url(img/layer-middle.png);"></div>
+                    <div class="layer layers__front" style="background-image: url(img/layer-front.png);"></div>
+                </div>
+            </header>
+
+            <article id="about" class="main-article" style="background-image: url(img/dungeon.jpg);">
+                <div class="main-article__content">
+                    <h2 class="main-article__header" id="o-nas" data-lang data-lang-ru="О нас" data-lang-en="About Us"
+                        data-lang-kg="Биз жөнүндө">О нас</h2>
+                    <p class="main-article__paragraph" data-lang
+                        data-lang-ru="Pro.Course – это быстрорастущее сообщество творческих людей. Тут эксперты-практики делятся своими знаниями и навыками с помощью профессионально подготовленных видеоуроков. ⠀  ⠀  ⠀  ⠀  ⠀  ⠀  ⠀  ⠀  ⠀    Мы стремимся помочь каждому, кто хочет превратить свою страсть к любимому делу в увлекательный и доходный бизнес, а студентам найти качественные видеокурсы без воды и теории."
+                        data-lang-en="Pro.Course is a rapidly growing community of creative people. Here, expert practitioners share their knowledge and skills through professionally prepared video lessons. We strive to help everyone who wants to turn their passion for their favorite activity into an exciting and profitable business, and for students to find high-quality video courses without fluff and theory."
+                        data-lang-kg="Pro.Course – бул чыгармачыл адамдардын тез өнүгүп жаткан коомчулугу. Бул жерде эксперт практиктер кесиптик даярдалган видео сабактар аркылуу өз билимин жана көндүмдөрүн бөлүшөт. Биз ар кимге өзүнүн сүйүктүү ишине болгон кумарын кызыктуу жана кирешелүү бизнеске айлантууга жардам берүүгө умтулабыз, ал эми студенттер үчүн сапаттуу видео курстарды суу жана теориясыз табууга аракет кылабыз.">
+                        Pro.Course – это быстрорастущее сообщество творческих людей. Тут эксперты-практики делятся
+                        своими знаниями и навыками с помощью профессионально подготовленных видеоуроков. ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀
+                        ⠀ Мы стремимся помочь каждому, кто хочет превратить свою страсть к любимому делу в увлекательный
+                        и доходный бизнес, а студентам найти качественные видеокурсы без воды и теории.</p>
+                </div>
+            </article>
+
+            <section id="products">
+            <article class="main-article" style="background-color: #030903;">
+                <div class="main-article__content">
+                    <h1 class="title" data-lang data-lang-ru="Доступные курсы" data-lang-en="Available Courses"
+                        data-lang-kg="Курстар">Доступные курсы</h1>
+                    <div class="row">
+
+                        <input type="text" id="course-search" placeholder="Введите название курса...">
+                        <div class="row" id="courses-container">
+
+                            <div class="product" id="product1">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/1card.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Визажист с нуля"
+                                    data-lang-en="Makeup Artist from Scratch" data-lang-kg="Визажисттен баштап">Визажист
+                                    с нуля</p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Уход за кожей и подготовка к макияжу. Легкий и естественный макияж. - Макияж на каждый день и для вечера. - Смоки айз и стрелки"
+                                    data-lang-en="- Skin care and makeup preparation. Light and natural makeup. - Everyday and evening makeup. - Smokey eyes and arrows"
+                                    data-lang-kg="- Териге кам көрүү жана макияж даярдоо. Жеңил жана табигый макияж. - Күнүмдүк жана кечки макияж. - Түтүн көздөрү жана жебелер">
+                                    - Уход за кожей и подготовка к макияжу. Легкий и естественный макияж. - Макияж на
+                                    каждый день и для вечера. - Смоки айз и стрелки</p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/4card.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Медитации света"
+                                    data-lang-en="Light Meditations" data-lang-kg="Жарык медитациялары">
+                                    <a href="#">Медитации света</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Радужные вращения. Прокачка головы и сердца. - Медитация «Исцеление рода». - Доброй Вечности! Сделаем практики на открытие сердечного центра."
+                                    data-lang-en="- Rainbow rotations. Head and heart pumping. - Ancestral healing meditation. - Good Eternity! We will practice opening the heart center."
+                                    data-lang-kg="- Кемпирчек айлануусу. Баш жана жүрөк прокачкасы. - «Туугандыкты айыктыруу» медитациясы. - Жакшы түбөлүктүүлүк! Жүрөк борборун ачуу практикасын жасайбыз.">
+                                    - Радужные вращения. Прокачка головы и сердца. - Медитация «Исцеление рода». -
+                                    Доброй Вечности! Сделаем практики на открытие сердечного центра.
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/7card.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Портреты карандашом"
+                                    data-lang-en="Pencil Portraits" data-lang-kg="Карандаш менен портреттер">
+                                    <a href="#">Портреты карандашом</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Основы рисования животного. Реалистичный женский портрет 3/4. - Реалистичный портрет анфас. Каждому участнику марафон в подарок"
+                                    data-lang-en="- Basics of animal drawing. Realistic female portrait 3/4. - Realistic portrait front view. Each participant gets a marathon as a gift"
+                                    data-lang-kg="- Жаныбар тартуу негиздери. Реалисттик аял портрети 3/4. - Реалисттик портрет фронталдык көрүнүш. Ар бир катышуучу марафонду белекке алат">
+                                    - Основы рисования животного. Реалистичный женский портрет 3/4. - Реалистичный
+                                    портрет анфас. Каждому участнику марафон в подарок
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/card12.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Сайты на Tilda"
+                                    data-lang-en="Tilda Websites" data-lang-kg="Tilda сайттары">
+                                    <a href="#">Сайты на Tilda</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Уход за кожей и подготовка к макияжу. Легкий и естественный макияж. - Макияж на каждый день и для вечера. - Смоки айз и стрелки"
+                                    data-lang-en="- Skin care and makeup preparation. Light and natural makeup. - Daily and evening makeup. - Smokey eyes and arrows"
+                                    data-lang-kg="- Териге кам көрүү жана макияжга даярдоо. Жеңил жана табигый макияж. - Күнүмдүк жана кечки макияж. - Түтүн көздөр жана жебелер">
+                                    - Уход за кожей и подготовка к макияжу. Легкий и естественный макияж. - Макияж на
+                                    каждый день и для вечера. - Смоки айз и стрелки
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/card14.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Копирайтинг" data-lang-en="Copywriting"
+                                    data-lang-kg="Копирайтинг">
+                                    <a href="#">Копирайтинг</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Радужные вращения. Прокачка головы и сердца. - Медитация «Исцеление рода». - Доброй Вечности! Сделаем практики на открытие сердечного центра."
+                                    data-lang-en="- Rainbow rotations. Head and heart pumping. - Ancestral healing meditation. - Good Eternity! We will practice opening the heart center."
+                                    data-lang-kg="- Кемпирчек айлануусу. Баш жана жүрөк прокачкасы. - «Туугандыкты айыктыруу» медитациясы. - Жакшы түбөлүктүүлүк! Жүрөк борборун ачуу практикасын жасайбыз.">
+                                    - Радужные вращения. Прокачка головы и сердца. - Медитация «Исцеление рода». -
+                                    Доброй Вечности! Сделаем практики на открытие сердечного центра.
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/card13.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="CMM специалист"
+                                    data-lang-en="SMM Specialist" data-lang-kg="SMM адиси">
+                                    <a href="#">CMM специалист</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Основы рисования животного. Реалистичный женский портрет 3/4. - Реалистичный портрет анфас. Каждому участнику марафон в подарок"
+                                    data-lang-en="- Basics of animal drawing. Realistic female portrait 3/4. - Realistic portrait front view. Each participant gets a marathon as a gift"
+                                    data-lang-kg="- Жаныбар тартуу негиздери. Реалисттик аял портрети 3/4. - Реалисттик портрет фронталдык көрүнүш. Ар бир катышуучу марафонду белекке алат">
+                                    - Основы рисования животного. Реалистичный женский портрет 3/4. - Реалистичный
+                                    портрет анфас. Каждому участнику марафон в подарок
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/card15.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Скорочтение"
+                                    data-lang-en="Speed Reading" data-lang-kg="Ыкчам окуу">
+                                    <a href="#">Скорочтение</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Уход за кожей и подготовка к макияжу. Легкий и естественный макияж. - Макияж на каждый день и для вечера. - Смоки айз и стрелки"
+                                    data-lang-en="- Skin care and makeup preparation. Light and natural makeup. - Daily and evening makeup. - Smokey eyes and arrows"
+                                    data-lang-kg="- Териге кам көрүү жана макияжга даярдоо. Жеңил жана табигый макияж. - Күнүмдүк жана кечки макияж. - Түтүн көздөр жана жебелер">
+                                    - Уход за кожей и подготовка к макияжу. Легкий и естественный макияж. - Макияж на
+                                    каждый день и для вечера. - Смоки айз и стрелки
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/card16.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Актерское мастерство"
+                                    data-lang-en="Acting Skills" data-lang-kg="Актердук чеберчилик">
+                                    <a href="#">Актерское мастерство</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Радужные вращения. Прокачка головы и сердца. - Медитация «Исцеление рода». - Доброй Вечности! Сделаем практики на открытие сердечного центра."
+                                    data-lang-en="- Rainbow rotations. Head and heart pumping. - Ancestral healing meditation. - Good Eternity! We will practice opening the heart center."
+                                    data-lang-kg="- Кемпирчек айлануусу. Баш жана жүрөк прокачкасы. - «Туугандыкты айыктыруу» медитациясы. - Жакшы түбөлүктүүлүк! Жүрөк борборун ачуу практикасын жасайбыз.">
+                                    - Радужные вращения. Прокачка головы и сердца. - Медитация «Исцеление рода». -
+                                    Доброй Вечности! Сделаем практики на открытие сердечного центра.
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="#"><img src="img/card17.jpg" alt=""></a>
+                                </div>
+                                <p class="product-title" data-lang data-lang-ru="Обучение" data-lang-en="Training"
+                                    data-lang-kg="Окутуу">
+                                    <a href="#">Обучение</a>
+                                </p>
+                                <p class="product-desc" data-lang data-lang-ru="Программа обучения:"
+                                    data-lang-en="Training Program:" data-lang-kg="Окуу программасы:">Программа
+                                    обучения:</p>
+                                <p class="product-price" data-lang
+                                    data-lang-ru="- Основы рисования животного. Реалистичный женский портрет 3/4. - Реалистичный портрет анфас. Каждому участнику марафон в подарок"
+                                    data-lang-en="- Basics of animal drawing. Realistic female portrait 3/4. - Realistic portrait front view. Each participant gets a marathon as a gift"
+                                    data-lang-kg="- Жаныбар тартуу негиздери. Реалисттик аял портрети 3/4. - Реалисттик портрет фронталдык көрүнүш. Ар бир катышуучу марафонду белекке алат">
+                                    - Основы рисования животного. Реалистичный женский портрет 3/4. - Реалистичный
+                                    портрет анфас. Каждому участнику марафон в подарок
+                                </p>
+                                <div class='btn-keeper'>
+                                    <a class='btn1' href="./pattern.html" data-lang data-lang-ru="Купить"
+                                        data-lang-en="Buy" data-lang-kg="Сатып алуу">Купить</a>
+                                </div>
+                            </div>
+
+                            <title class="play">Угадай число и выиграй!</title>
+                            <div class="container2">
+                                <h5>Испытайте свою удачу! Угадайте число от 1 до 3 и получите моментальный результат:
+                                    50% скидка на любой курс или бесплатный курс! Не теряйте времени, играйте прямо
+                                    сейчас!</h5>
+                                <a href="playgame.html" class="play-button">Играть</a>
+                            </div>
+
+            </article>
+
+        </section>
+
+            <div class="my-block" style="background-color: #EFF0F0;">
+                <div class="wrap">
+                    <div class="informBlock" id="preimushestva">
+                        <div class="symbol">
+                            <img src="img/prm1.jpg" alt="">
+                            <span class="point point1"></span>
+                            <span class="point point2"></span>
+                            <span class="point point3"></span>
+                            <span class="point point4"></span>
+                        </div>
+                        <div class="informText">
+                            <h5 class="mainText" data-lang data-lang-ru="Отборный контент"
+                                data-lang-en="Selected Content" data-lang-kg="Тандалган контент">Отборный контент</h5>
+                            <p class="secondText" data-lang
+                                data-lang-ru="Мы тщательно отбираем материалы перед публикацией. Большинство курсов ориентированы на практику, а не на чтение лекций."
+                                data-lang-en="We carefully select materials before publication. Most courses focus on practice rather than lectures."
+                                data-lang-kg="Биз материалдарды жарыялоо алдында кылдат тандайбыз. Көпчүлүк курстар лекцияларга караганда практикага багытталган.">
+                                Мы тщательно отбираем материалы перед публикацией. Большинство курсов ориентированы на
+                                практику, а не на чтение лекций.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="informBlock">
+                        <div class="symbol">
+                            <img src="img/prm3.jpg" alt="">
+                            <span class="point point1"></span>
+                            <span class="point point2"></span>
+                            <span class="point point3"></span>
+                            <span class="point point4"></span>
+                        </div>
+                        <div class="informText">
+                            <h5 class="mainText" data-lang data-lang-ru="Курсы без абонентской платы"
+                                data-lang-en="Courses without Subscription Fee"
+                                data-lang-kg="Абоненттик төлөмсүз курстар">Курсы без абонентской платы</h5>
+                            <p class="secondText" data-lang
+                                data-lang-ru="Платите только за те курсы, которые вы хотите изучить, никаких ежемесячных платежей."
+                                data-lang-en="Pay only for the courses you want to take, no monthly fees."
+                                data-lang-kg="Сиз үйрөнгүңүз келген курстар үчүн гана төлөңүз, ай сайын төлөмдөр жок.">
+                                Платите только за те курсы, которые вы хотите изучить, никаких ежемесячных платежей.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="informBlock">
+                        <div class="symbol">
+                            <img src="img/prm2.jpg" alt="">
+                            <span class="point point1"></span>
+                            <span class="point point2"></span>
+                            <span class="point point3"></span>
+                            <span class="point point4"></span>
+                        </div>
+                        <div class="informText">
+                            <h5 class="mainText" data-lang data-lang-ru="Доступ к платформе 24/7"
+                                data-lang-en="24/7 Platform Access" data-lang-kg="24/7 платформага жеткиликтүүлүк">
+                                Доступ к платформе 24/7</h5>
+                            <p class="secondText" data-lang
+                                data-lang-ru="Повышайте квалификацию, осваивайте новую профессию без ограничений. В любом месте в любое время доступно на IOS и Android."
+                                data-lang-en="Improve your skills, learn a new profession without limits. Available anytime, anywhere on iOS and Android."
+                                data-lang-kg="Квалификацияңызды жогорулатыңыз, жаңы кесипти чексиз үйрөнүңүз. IOS жана Androidде каалаган убакта, каалаган жерде жеткиликтүү.">
+                                Повышайте квалификацию, осваивайте новую профессию без ограничений. В любом месте в
+                                любое время доступно на IOS и Android.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="container" data-bs-spy="scroll" data-bs-target="#navigation">
+
+                <h5 class="text-center mt-5 mb-5" style="color: w;" id="reviews">Отзывы</h5>
+                <div class="row2 row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 stars-card">
+                            <form>
+                                <div class="form-group">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="star-5" type="radio" name="rating"
+                                                value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-5"
+                                                title="Отлично"></label>
+                                            <input class="star-rating__input" id="star-4" type="radio" name="rating"
+                                                value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-4"
+                                                title="Хорошо"></label>
+                                            <input class="star-rating__input" id="star-3" type="radio" name="rating"
+                                                value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-3"
+                                                title="Удовлетворительно"></label>
+                                            <input class="star-rating__input" id="star-2" type="radio" name="rating"
+                                                value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-2"
+                                                title="Плохо"></label>
+                                            <input class="star-rating__input" id="star-1" type="radio" name="rating"
+                                                value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-1"
+                                                title="Ужасно"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="card-body">
+                                <h5 class="card-title" data-lang data-lang-ru="Отзыв" data-lang-en="Review"
+                                    data-lang-kg="Отзыв">
+                                    Отзыв
+                                </h5>
+                                <p class="card-text" data-lang
+                                    data-lang-ru='Приобрела курс "Визажист с нуля". Очень довольна, что с первого занятия задания сделаны согласно росту уровня знаний, такой формат хорошо улучшит изучение с самих азов, чтоб плавно переходить от легкого к сложному. На курсе подробно показывают и рассказывают такие ценные знания.'
+                                    data-lang-en='Purchased the course "Makeup Artist from Scratch". Very pleased that assignments are made according to the growth of knowledge level from the very first lesson, such format will greatly enhance learning from scratch to smoothly transitioning from easy to complex. In the course they show in detail and tell such valuable knowledge.'
+                                    data-lang-kg='Менинг адисти "Визажист нуткун" курстун кыпсаюу. Очень доволум, ал чындык биринчи окууларынан баштаганынан кийин, бул түс кызматтар каалаган билгини кыймылдо өтүүгө мазмундук кыймылдо төмөндөй күйөлүм. Курста ошондой жакшы, ал кымбат жана маанеке бул жакшы билгилерди көрсөтүп, айтып берүүлөрүн көрсөтүп береди.'>
+                                    Приобрела курс "Визажист с нуля". Очень довольна, что с первого занятия задания
+                                    сделаны согласно росту уровня знаний, такой формат хорошо улучшит изучение с самих
+                                    азов, чтоб плавно переходить от легкого к сложному. На курсе подробно показывают и
+                                    рассказывают такие ценные знания.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#"><img src="/img/з1.jpg" alt="girl" class="ava"></a>
+                                <a href="#" class="ava-name">Nariste</a>
+                                <p class="ava-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 stars-card">
+                            <form>
+                                <div class="form-group">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="star-5" type="radio" name="rating"
+                                                value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-5"
+                                                title="Отлично"></label>
+                                            <input class="star-rating__input" id="star-4" type="radio" name="rating"
+                                                value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-4"
+                                                title="Хорошо"></label>
+                                            <input class="star-rating__input" id="star-3" type="radio" name="rating"
+                                                value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-3"
+                                                title="Удовлетворительно"></label>
+                                            <input class="star-rating__input" id="star-2" type="radio" name="rating"
+                                                value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-2"
+                                                title="Плохо"></label>
+                                            <input class="star-rating__input" id="star-1" type="radio" name="rating"
+                                                value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-1"
+                                                title="Ужасно"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="card-body">
+                                <h5 class="card-title" data-lang data-lang-ru="Отзыв" data-lang-en="Review"
+                                    data-lang-kg="Отзыв">
+                                    Отзыв
+                                </h5>
+                                <p class="card-text" data-lang
+                                    data-lang-ru='Проходила курс по профессии "Копирайтер", дополнительно мне дали курс в подарок "Таргетолог с нуля", курс очень классный, все прошла на легке, перед тем, как выбрать читала много положительных отзывов о курсе, темы максимально глубокие, что очень важно.'
+                                    data-lang-en='I have passed the "Copywriter" profession course, additionally I was given the "Targetologist from scratch" course as a gift, the course is very cool, everything passed easily, before choosing I read many positive reviews about the course, the topics are maximally deep, which is very important.'
+                                    data-lang-kg='Менинг копирайтердик курстун отууга бара, мен сугуштон таргетологу курстунун камтылганы бул, ал курс керемет, баары ыңгай чыгып, курстун максималдуу ылдам көп эмес, курстун махсымдуу таржымалары ыңгай, кимил эле.'>
+                                    Проходила курс по профессии "Копирайтер", дополнительно мне дали курс в подарок
+                                    "Таргетолог с нуля", курс очень классный, все прошла на легке, перед тем, как
+                                    выбрать читала много положительных отзывов о курсе, темы максимально глубокие, что
+                                    очень важно.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#"><img src="/img/12review.png" alt="girl" class="ava"></a>
+                                <a href="#" class="ava-name">Aksana</a>
+                                <p class="ava-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 stars-card">
+                            <form>
+                                <div class="form-group">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="star-5" type="radio" name="rating"
+                                                value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-5"
+                                                title="Отлично"></label>
+                                            <input class="star-rating__input" id="star-4" type="radio" name="rating"
+                                                value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-4"
+                                                title="Хорошо"></label>
+                                            <input class="star-rating__input" id="star-3" type="radio" name="rating"
+                                                value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-3"
+                                                title="Удовлетворительно"></label>
+                                            <input class="star-rating__input" id="star-2" type="radio" name="rating"
+                                                value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-2"
+                                                title="Плохо"></label>
+                                            <input class="star-rating__input" id="star-1" type="radio" name="rating"
+                                                value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-1"
+                                                title="Ужасно"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="card-body">
+                                <h5 class="card-title" data-lang data-lang-ru="Отзыв" data-lang-en="Review"
+                                    data-lang-kg="Отзыв">
+                                    Отзыв
+                                </h5>
+                                <p class="card-text" data-lang
+                                    data-lang-ru='Занятия всегда на высоте, особенный плюс — это преподавательский состав, который превзошел все мои ожидания. Программа составлена настолько четко и грамотно, поэтому мне кажется что тут заложен максимум из возможного. Радует еще то, что бессрочный доступ к базе материалов, на случай повторения.'
+                                    data-lang-en='Classes are always top-notch, a special plus is the teaching staff, which exceeded all my expectations. The program is so clearly and competently structured that it seems to me that the maximum possible has been laid here. I am also pleased with the lifetime access to the material base, in case of repetition.'
+                                    data-lang-kg='Класстар дайын, маалыматтык мамлекет, бул менин баардымнын барууларын түзетүүдө максималды уюштуруу көрсөтүлгөн бардым, тааныштыктык жөнүндөн көз үзө алам. Бонус ошондой бер, маатанын маалыматтык базасына байланыш болсо, кайра таасириче.'>
+                                    Занятия всегда на высоте, особенный плюс — это преподавательский состав, который
+                                    превзошел все мои ожидания. Программа составлена настолько четко и грамотно, поэтому
+                                    мне кажется что тут заложен максимум из возможного. Радует еще то, что бессрочный
+                                    доступ к базе материалов, на случай повторения.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#"><img src="/img/13review.png" alt="girl" class="ava"></a>
+                                <a href="#" class="ava-name">Kamilla</a>
+                                <p class="ava-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer>
+                <footer class="footer">
+                    <div class="waves">
+                        <div class="wave" id="wave1"></div>
+                        <div class="wave" id="wave2"></div>
+                        <div class="wave" id="wave3"></div>
+                        <div class="wave" id="wave4"></div>
+                    </div>
+                    <ul class="social-icon">
+                        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a></li>
+                        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a></li>
+                        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a></li>
+                        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="#product1">Pro.Course - платформа для онлайн
+                                преподавания и обучения.</a></li>
+
+                    </ul>
+                    <p>&copy;Online Courses</p>
+                </footer>
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+            </footer>
+        </div>
+
+    </div>
+</body>
+
+</html>
